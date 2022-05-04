@@ -1,0 +1,27 @@
+Recording <- c(1,2,3,4,5,6,7,8,9)
+Temp <- c(2,4,6,8,10,12,14,16,18)
+HRate <- c(5,11,11,14,22,23,32,29,32)
+Exp <- data.frame(Recording, Temp, HRate)
+head(Exp, n = 5)
+tail(Exp, n = 5)
+attach(Exp)
+plot(Temp, HRate, main = "Heart Rate vs Temperature", xlab = "Temperature
+(C)", ylab = "BPM")
+Model_1 <- lm(HRate ~ Temp, data = Exp)
+Model_1 # print the results
+lm(formula = HRate ~ Temp, data = Exp)
+b0 = 2.139 #(Intercept)
+b1 = 1.775 #(Slope)
+plot(Temp, HRate, main = "Heart Rate vs Temperature", xlab =
+"Temperature (C)", ylab = "BPM")
+abline(b0, b1, col = "red")
+b0 = 2.139
+b1 = 1.775
+plot(Temp, HRate, main = "Heart Rate vs Temperature", xlab =
+"Temperature (C)", ylab = "BPM")
+abline(b0, b1, col = "red")
+One.way <- aov(HRate ~ Temp, data = Exp)
+summary(One.way)
+new <- data.frame(Temp = 9)
+new
+predict(Model_1, new, interval = "confidence")
